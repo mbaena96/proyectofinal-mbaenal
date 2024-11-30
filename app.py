@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_login import LoginManager, login_user, login_required, current_user, logout_user
-from os import getenv
+from os import getenv, environ
 from dotenv import load_dotenv
 from db import db, init_db
 from models.usuario import Usuario
@@ -13,6 +13,8 @@ from controllers.ingrediente_controller import ingrediente_bp, ingrediente_bp_ap
 import secrets
 
 load_dotenv()
+print(environ)
+print(getenv('DB_STRING_CONNECTION'))
 
 app = Flask(__name__, template_folder='views')
 login_manager = LoginManager(app)
