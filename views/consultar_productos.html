@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block titulo %}
+    Productos
+{% endblock %}
+{% block body %}
+    <table style="width:100%">
+        <tr>
+            <th>Nombre</th>
+            <th colspan="3">Ingredientes</th>
+            <th>Accion</th>
+        </tr>
+        {% for producto in productos %}
+        <tr>
+            <td>
+                <div>
+                    <a href="{{url_for('producto_bp.detalle_producto', id=producto.id)}}">{{producto.nombre}}</a>
+                </div>
+            </td>
+            {% for ingrediente in producto.ingredientes %}
+            <td>
+                <div style="text-align: center;">
+                    <!-- <a href="{{'/ingrediente/%s'%ingrediente.id}}">{{ingrediente.nombre}}</a> -->
+                    <a href="{{url_for('ingrediente_bp.mostrar_ingredientes', id=ingrediente.id)}}">{{ingrediente.nombre}}</a>
+                </div>
+            </td>
+            {% endfor %}
+            <td>
+                <div>
+                    <form action="{{url_for('producto_bp.abastecer_producto', id=producto.id)}}">
+                        <button type="submit" name="abastecer_todo">Abastecer todo</button>
+                    </form>
+                    <form action="{{url_for('producto_bp.renovar_producto', id=producto.id)}}">
+                        <button type="submit" name="renovar_todo">Renovar todo</button>
+                    </form>
+                </div>
+            </td>
+            {% endfor %}
+        </tr>
+    </table>
+    <br>
+    <a href="{{url_for('index')}}">Volver</a>
+{% endblock %}
+</html>

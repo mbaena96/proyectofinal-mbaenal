@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block titulo %}
+    Ingredientes
+{% endblock %}
+{% block body %}
+    <table style="width:100%">
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Calorias</th>
+            <th>Inventario</th>
+            <th>Tipo</th>
+            <th>Es sano</th>
+        </tr>
+            <td>{{ ingrediente.nombre }}</td>
+            <td>{{ ingrediente.precio }}</td>
+            <td>{{ ingrediente.calorias }}</td>
+            <td>{{ ingrediente.inventario }}</td>
+            <td>{{ ingrediente.tipo }}</td>
+            <td>{{ es_sano }}</td>
+        <tr>
+        </tr>
+        </tr>
+    </table>
+    <div>
+        <form action="{{url_for('ingrediente_bp.abastecer_ingrediente', id=ingrediente.id)}}">
+            <button type="submit" name="abastecer_ingrediente">Abastecer</button>
+        </form>
+        <form action="{{ url_for('ingrediente_bp.renovar_ingrediente', id=ingrediente.id) }}">    
+            <button type="submit" name="renovar_ingrediente">Renovar</button>
+        </form>
+    </div>
+    <br>
+    <a href="{{url_for('producto_bp.listar_productos')}}">Volver</a>
+{% endblock %}

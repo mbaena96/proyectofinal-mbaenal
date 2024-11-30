@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block titulo %}
+Acceso no autorizado
+{% endblock %}
+{% block body %}
+<div>
+    <h1>Acceso no autorizado</h1>
+    <a href="{{url_for('index')}}">Inicio</a>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% block titulo %}
+Producto mas rentable
+{% endblock %}
+{% block body %}
+<div>
+    <h1>Venta del día: ${{venta_dia}}</h1>
+    <h1>Producto mas rentable: {{producto_rentable}}</h1>
+    <h1>Rentabilidad: ${{rentabilidad}}</h1>
+    <a href="{{url_for('index')}}">Volver</a>
+</div>
+{% endblock %}

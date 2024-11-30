@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block titulo %}
+    Heladeria
+{% endblock %}
+{% block body %}
+    <!-- <a href="{{'/productos/lista/%s'%valor}}">Consultar productos</a> -->
+     <div>
+        <h1>{{ heladeria.nombre }}</h1>
+        <!-- <h1>Venta del día: ${{ heladeria.venta_dia }}</h1> -->
+        <!-- <h1>Producto mas rentable: {{producto_rentable}}</h1> -->
+        <a href="{{url_for('producto_bp.listar_productos')}}">Consultar inventario</a>
+        <br>
+        <a href="{{url_for('heladeria_bp.vender')}}">Vender producto</a>
+        <br>
+        <a href="{{url_for('heladeria_bp.producto_rentable')}}">Producto mas rentable</a>
+        <br>
+        <a href="{{url_for('login')}}">Iniciar sesión</a>
+        <br>
+        <a href="{{url_for('logout')}}">Cerrar sesión</a>
+     </div>
+{% endblock %}
