@@ -2,6 +2,7 @@ from models.producto import Producto
 from flask import Blueprint, render_template, flash, redirect, url_for, jsonify
 from flask_login import login_required, current_user
 from db import db
+import urllib
 
 producto_bp = Blueprint('producto_bp',__name__, url_prefix='/productos')
 producto_bp_api = Blueprint('producto_bp_api',__name__, url_prefix='/api/productos')
@@ -73,6 +74,7 @@ def api_listar_producto_id(id):
 @producto_bp_api.route('/<string:nombre>')
 def api_listar_producto_nombre(nombre):
     try:
+        nombre = urllib.parse.unquote(nombre)
         print(nombre)
         producto = Producto.query.filter_by(nombre=nombre).first()
         return jsonify(data = producto.show())
