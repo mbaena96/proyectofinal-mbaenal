@@ -2,6 +2,7 @@ from models.ingrediente import Ingrediente
 from flask import Blueprint, render_template, flash, redirect, url_for, jsonify
 from flask_login import login_required, current_user
 from db import db
+import urllib
 
 ingrediente_bp = Blueprint('ingrediente_bp', __name__, url_prefix='/ingrediente')
 ingrediente_bp_api = Blueprint('ingrediente_bp_api', __name__, url_prefix='/api/ingredientes')
@@ -52,8 +53,9 @@ def api_listar_ingredientes_id(id):
     ingrediente = Ingrediente.query.get(id)
     return jsonify(data = ingrediente.show())
     
-@ingrediente_bp_api.route('/<nombre>')
+@ingrediente_bp_api.route('/<string:nombre>')
 def api_listar_ingredientes_nombre(nombre):
+    nombre = urllib.parse.unquote(nombre)
     ingrediente = Ingrediente.query.filter_by(nombre=nombre).first()
     return jsonify(data = ingrediente.show())
 

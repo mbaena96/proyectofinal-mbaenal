@@ -75,7 +75,7 @@ def api_listar_producto_id(id):
 def api_listar_producto_nombre(nombre):
     try:
         nombre = urllib.parse.unquote(nombre)
-        print(nombre)
+        # print(nombre)
         producto = Producto.query.filter_by(nombre=nombre).first()
         return jsonify(data = producto.show())
     except Exception as e:
