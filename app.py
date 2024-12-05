@@ -29,7 +29,7 @@ def cargar_datos():
 
     usuario1 = Usuario(username = 'martin', password = '123', es_admin=True)
     usuario2 = Usuario(username = 'juan',  password = '456', es_empleado=True)
-    usuario3 = Usuario(username = 'pepe',  password = '789')
+    usuario3 = Usuario(username = 'pepes',  password = '789')
 
     #Creando la heladeria
     heladeria = Heladeria('Heladería Don Juan')
