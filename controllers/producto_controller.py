@@ -73,6 +73,7 @@ def api_listar_producto_id(id):
 @producto_bp_api.route('/<string:nombre>')
 def api_listar_producto_nombre(nombre):
     try:
+        print(nombre)
         producto = Producto.query.filter_by(nombre=nombre).first()
         return jsonify(data = producto.show())
     except Exception as e:
