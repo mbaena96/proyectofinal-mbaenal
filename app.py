@@ -24,7 +24,7 @@ login_manager.login_view = 'no_autorizado'
 app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DB_STRING_CONNECTION')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = secrets.token_urlsafe(16)
-print(getenv('DB_STRING_CONNECTION'))
+# print(getenv('DB_STRING_CONNECTION'))
 db.init_app(app)
 # init_db(app)
 
@@ -98,8 +98,8 @@ def load_user(id_usuario):
 @app.route('/')
 def index():
     #Descomentar estas dos líneas de código para crear la bd y cargar los datos, comentarlas si ya se cargó la info
-    init_db(app)
-    cargar_datos()
+    # init_db(app)
+    # cargar_datos()
 
 
     heladeria = Heladeria.query.get(1)
