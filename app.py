@@ -21,7 +21,7 @@ login_manager.login_view = 'no_autorizado'
 app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DB_STRING_CONNECTION')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = secrets.token_urlsafe(16)
-
+print(getenv('DB_STRING_CONNECTION'))
 db.init_app(app)
 # init_db(app)
 
