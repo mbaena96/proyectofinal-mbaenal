@@ -70,7 +70,7 @@ def api_listar_producto_id(id):
     except Exception as e:
         return jsonify(data = str(e))
 
-@producto_bp_api.route('/<String:nombre>')
+@producto_bp_api.route('/<string:nombre>')
 def api_listar_producto_nombre(nombre):
     try:
         producto = Producto.query.filter_by(nombre=nombre).first()
