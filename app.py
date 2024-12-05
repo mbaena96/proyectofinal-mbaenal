@@ -1,3 +1,5 @@
+import pymysql
+pymysql.install_as_MySQLdb()
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_login import LoginManager, login_user, login_required, current_user, logout_user
 from os import getenv
@@ -11,8 +13,6 @@ from controllers.producto_controller import producto_bp, producto_bp_api
 from controllers.heladeria_controller import heladeria_bp, heladeria_bp_api
 from controllers.ingrediente_controller import ingrediente_bp, ingrediente_bp_api
 import secrets
-import pymysql
-pymysql.install_as_MySQLdb()
 
 load_dotenv()
 
