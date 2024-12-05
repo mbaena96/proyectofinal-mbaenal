@@ -98,8 +98,8 @@ def load_user(id_usuario):
 @app.route('/')
 def index():
     #Descomentar estas dos líneas de código para crear la bd y cargar los datos, comentarlas si ya se cargó la info
-    # init_db(app)
-    # cargar_datos()
+    init_db(app)
+    cargar_datos()
 
 
     heladeria = Heladeria.query.get(1)
