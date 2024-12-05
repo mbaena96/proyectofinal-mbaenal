@@ -11,6 +11,8 @@ from controllers.producto_controller import producto_bp, producto_bp_api
 from controllers.heladeria_controller import heladeria_bp, heladeria_bp_api
 from controllers.ingrediente_controller import ingrediente_bp, ingrediente_bp_api
 import secrets
+import pymysql
+pymysql.install_as_MySQLdb()
 
 load_dotenv()
 
