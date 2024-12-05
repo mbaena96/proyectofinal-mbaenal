@@ -1,5 +1,6 @@
 import pymysql
 pymysql.install_as_MySQLdb()
+
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_login import LoginManager, login_user, login_required, current_user, logout_user
 from os import getenv
